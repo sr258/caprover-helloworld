@@ -1,0 +1,21 @@
+{
+  "name": "caprover-helloworld",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sr258/caprover-helloworld.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sr258/caprover-helloworld/issues"
+  },
+  "homepage": "https://github.com/sr258/caprover-helloworld#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
