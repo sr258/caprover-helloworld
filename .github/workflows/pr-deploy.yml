@@ -32,6 +32,6 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Pushes to caprover
         run: |
-          caprover api -u ${{ secrets.CAPROVER_URL }} -p ${{ secrets.CAPROVER_PASSWORD }} -t "/user/apps/appDefinitions/register" -m "POST" -d '{"appName": "hw-${GITHUB_SHA}","hasPersistentData": false}'
-          caprover api -u ${{ secrets.CAPROVER_URL }} -p ${{ secrets.CAPROVER_PASSWORD }} -t "/user/apps/appDefinitions/update" -m "POST" -d '{"appName": "hw-${GITHUB_SHA}", "envVars": [ { "key": "PORT", "value": "80" }]}'
-          caprover deploy -u ${{ secrets.CAPROVER_URL }} -p ${{ secrets.CAPROVER_PASSWORD }} -a "hw-${GITHUB_SHA}" -b ${GITHUB_REF##*/}
+          caprover api -u ${{ secrets.CAPROVER_URL }} -p ${{ secrets.CAPROVER_PASSWORD }} -t "/user/apps/appDefinitions/register" -m "POST" -d '{"appName": "hw-${{github.sha}}","hasPersistentData": false}'
+          caprover api -u ${{ secrets.CAPROVER_URL }} -p ${{ secrets.CAPROVER_PASSWORD }} -t "/user/apps/appDefinitions/update" -m "POST" -d '{"appName": "hw-${{github.sha}}", "envVars": [ { "key": "PORT", "value": "80" }]}'
+          caprover deploy -u ${{ secrets.CAPROVER_URL }} -p ${{ secrets.CAPROVER_PASSWORD }} -a "hw-${{github.sha}}" -b ${{github.head_ref}}
