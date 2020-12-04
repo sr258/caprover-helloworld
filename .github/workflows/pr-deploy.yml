@@ -33,5 +33,5 @@ jobs:
       - name: Pushes to caprover
         run: |
           caprover api -u "${{ secrets.CAPROVER_URL }}" -p "${{ secrets.CAPROVER_PASSWORD }}" -t "/user/apps/appDefinitions/register" -m "POST" -d '{"appName": "hw-${{github.sha}}","hasPersistentData": false}'
-          caprover api -u "${{ secrets.CAPROVER_URL }}" -p "${{ secrets.CAPROVER_PASSWORD }}" -t "/user/apps/appDefinitions/update" -m "POST" -d '{"appName": "hw-${{github.sha}}", "envVars": [ { "key": "PORT", "value": "80" }]}'
+          caprover api -u "${{ secrets.CAPROVER_URL }}" -p "${{ secrets.CAPROVER_PASSWORD }}" -t "/user/apps/appDefinitions/update" -m "POST" -d '{"appName": "hw-${{github.sha}}", "envVars": [ { "key": "PORT", "value": "80" }], "instanceCount": 1}'
           caprover deploy -u "${{ secrets.CAPROVER_URL }}" -p "${{ secrets.CAPROVER_PASSWORD }}" -a "hw-${{github.sha}}" -b "${{github.sha}}"
